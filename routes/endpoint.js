@@ -195,22 +195,27 @@ router.post('/chat', async (req, res) => {
     const extraInfo = webAugmentation.choices[0].message.content.trim();
     console.log('🌐 Internet knowledge fetched:', extraInfo);
 
-    // Step 5: YouTube link suggestion
     let youtubeLink = '';
     const lowerQuery = query.toLowerCase();
+    
     if (lowerQuery.includes('ramayan') || lowerQuery.includes('रामायण')) {
       youtubeLink = 'https://www.youtube.com/@salangpurhanumanji';
     } else if (lowerQuery.includes('swaminarayan') || lowerQuery.includes('स्वामिनारायण')) {
       youtubeLink = 'https://www.youtube.com/@hariprakashswami';
+    } else if (lowerQuery.includes('hariprakash') || lowerQuery.includes('हरिप्रकाश')) {
+      youtubeLink = 'https://www.youtube.com/@hariprakashswami';
+    } else if (lowerQuery.includes('hariswarup') || lowerQuery.includes('हरिस्वरूप')) {
+      youtubeLink = 'https://www.youtube.com/@hariprakashswami'; // <-- If you have different link for Hariswarup, change here.
     }
 
     console.log('📺 YouTube link selected:', youtubeLink || 'No link.');
-
-    // Step 6: Send final response
+// Step 6: Send final response
     const finalMessage = `${reply}\n\n🔍 *अधिक जानकारी इंटरनेट से:*\n${extraInfo}\n\n🌺 वत्स, मैं तुझ पर अपनी कृपा बनाए रखूँ। हरि स्मरण करता रह।`;
 
-    res.json({ reply: finalMessage, youtubeLink });
-
+    res.json({ 
+      reply: finalMessage,
+      youtube: youtubeLink // ✅ Correct Key Name
+    });
   } catch (error) {
     console.error('❌ Error during /chat processing:', error.response?.data || error.message);
     res.status(500).json({ error: 'Something went wrong during chat generation.' });

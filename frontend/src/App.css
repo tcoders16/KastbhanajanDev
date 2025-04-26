@@ -1,1 +1,127 @@
 @import "tailwindcss";
+
+/* Reset */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f0f0f;
+  color: #f1f1f1;
+}
+
+/* Container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: #0f0f0f;
+}
+
+/* Header */
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+/* Chat box */
+.chat-box {
+  background-color: #121212;
+  border-radius: 1rem;
+  padding: 1rem;
+  max-width: 600px;
+  width: 100%;
+  height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Message base */
+.message {
+  padding: 0.75rem 1rem;
+  border-radius: 1.25rem;
+  margin: 0.3rem 0;
+  max-width: 85%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  display: inline-block;
+}
+
+/* User message */
+.user-message {
+  align-self: flex-end;
+  background-color: #facc15;
+  color: #000;
+  border-bottom-right-radius: 0;
+  text-align: right;
+}
+
+/* Hanuman message */
+.hanuman-message {
+  align-self: flex-start;
+  background-color: #1e1e1e;
+  color: #eaeaea;
+  border-bottom-left-radius: 0;
+  text-align: left;
+}
+
+/* Input section */
+.input-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Input field */
+.input-area input {
+  flex-grow: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
+  outline: none;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  transition: border 0.2s ease;
+}
+
+.input-area input:focus {
+  border-color: #facc15;
+}
+
+/* Send button */
+.input-area button {
+  background-color: #facc15;
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.input-area button:hover {
+  background-color: #fde047;
+}
+
+/* Scrollbar styling */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
